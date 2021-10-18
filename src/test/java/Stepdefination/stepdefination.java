@@ -29,8 +29,8 @@ public class stepdefination {
 	@When("user enters the {string} and {string}")
 	public void user_enters_the_and(String Username, String password) {
 	   try {
-		driver.findElement(By.id("login")).sendKeys("user123");
-	    driver.findElement(By.id("password")).sendKeys("g");
+		driver.findElement(By.id("login")).sendKeys(Username);
+	    driver.findElement(By.id("password")).sendKeys(password);
 	}
 		  
 		  
@@ -100,56 +100,95 @@ public class stepdefination {
 	    }
 
 		
-		  @Given("when user is on edit profile page") public void
-		  when_user_is_on_edit_profile_page() {
+		  @Given("when user is on edit profile page")
+		  public void when_user_is_on_edit_profile_page() {
 		  System.out.println("user is on edit profile page");
 		  
 		  }
 		 
-		  @When("user clicks on choose image option") public void
-		  user_clicks_on_choose_image_option() { try { Thread.sleep(2000); WebElement
-		  chooseFile= driver.findElement(By.name("picture")); chooseFile.click();
+		  @When("user clicks on choose image option") 
+		  public void user_clicks_on_choose_image_option() 
+		  {
+			  try
+			  {
+		   
+		  Thread.sleep(2000); WebElement
+		  chooseFile= driver.findElement(By.name("picture")); 
+		  chooseFile.click();
 		  Thread.sleep(10000);
 		  
-		  System.out.println("user clicks on choose file button"); } catch(Exception
+		  System.out.println("user clicks on choose file button"); 
+		  } 
+		  catch(Exception
 		  ex) {
 		  System.out.println("user is not able to click on choose file option"+ex);
 		  Assert.fail();
 		  } }
 		 
 	
-	  @Then("user is able to select image from browser") public void
-	  user_is_able_to_select_image_from_browser() { try{
+	  @Then("user is able to select image from browser") 
+	  public void user_is_able_to_select_image_from_browser() { try{
 	  driver.findElement(By.xpath("//img[@id='picture_preview_image']")).
 	  isDisplayed();
 	  
-	} catch(Exception e) { System.out.println("could not upload image"+e); Assert.fail();} }
+	} catch(Exception e)
+	  {
+		System.out.println("could not upload image"+e);
+	Assert.fail();
+	} 
+	  }
 	 
 	
 	  @Given("user is on edit profile page") public void
-	  user_is_on_edit_profile_page() {
-	  System.out.println("user is on edit profile page"); }
+	  user_is_on_edit_profile_page() 
+	  {
+	  System.out.println("user is on edit profile page"); 
+	  }
 	 
-	  @When("user clicks on language") public void user_clicks_on_language() { try
-	  { driver.findElement(By.xpath("//div[@class='filter-option']")).click();;
+	  @When("user clicks on language") 
+	  public void user_clicks_on_language() 
+	  {
+		  try
+	  { 
+			  driver.findElement(By.xpath("//div[@class='filter-option']")).click();;
 	  driver.findElement(By.xpath("//span[text()='Deutsch']")).click();
 	  
-	  } catch(Exception e) {
-	  System.out.println("user is not able to select language"+e);Assert.fail(); } }
+	  } catch(Exception e)
+		  {
+	  System.out.println("user is not able to select language"+e);
+	  Assert.fail(); 
+	  } 
+		  }
 	  
-	  @Then("user is able to select language") public void
-	  user_is_able_to_select_language() { try {
-	 driver.findElement(By.xpath("//*[text()='Deutsch']")).isDisplayed(); }
-	 catch(Exception e) { System.out.println("language is not displayed"+e);Assert.fail(); } }
+	  @Then("user is able to select language")
+	  public void user_is_able_to_select_language() 
+	  {  
+		  try
+	  {
+	 driver.findElement(By.xpath("//*[text()='Deutsch']")).isDisplayed();
+	 Thread.sleep(5000);
+	 driver.findElement(By.id("profile_apply_change")).click();
+	 }
+	 catch(Exception e)
+		  {
+		 System.out.println("language is not displayed"+e);
+		 Assert.fail();
+		 }
+		  }
 	 
 	
-	  @Given("user is on edit profile") public void user_is_on_edit_profile() {
-	  System.out.println("user is on edit profile page"); }
+	  @Given("user is on edit profile") 
+	  public void user_is_on_edit_profile()
+	  {
+	  System.out.println("user is on edit profile page");
+	  }
 	  
-	  @When("user enters {string} ,{string},{string}") public void
-	  user_enters(String oldpassword, String newpassword, String confirmpassword) {
+	  @When("user enters {string} ,{string},{string}")
+	  public void user_enters(String oldpassword, String newpassword, String confirmpassword) {
 	 
-	  try { driver.findElement( By.id("profile_password0")).sendKeys("tanuja");
+	  try 
+	  {
+		  driver.findElement( By.id("profile_password0")).sendKeys("tanuja");
 	  Thread.sleep(2000); driver.findElement(By.id("password1")).sendKeys("hfhe");
 	  Thread.sleep(2000);
 	  driver.findElement(By.id("profile_password2")).sendKeys("hfhe");
@@ -160,111 +199,163 @@ public class stepdefination {
 	  
 	  }
 	  
-	  @Then("user is able to click on save settings field") public void
-	  user_is_able_to_click_on_save_settings_field() { try {
+	  @Then("user is able to click on save settings field") 
+	  public void user_is_able_to_click_on_save_settings_field() 
+	  {
+		  try
+		  {
 	  driver.findElement(By.id("profile_apply_change")).click();
-	  Thread.sleep(2000); if(driver.findElement(By.
-	  xpath("//div[contains(text(),'The current password is incorrect')]")).isDisplayed()) {
-	  System.out.println("true"); } else System.out.println("not displayed"); }
-	  catch(Exception s) {
-	System.out.println("user is able to click on save settings button"+s);Assert.fail(); } }
+	  Thread.sleep(2000); 
+	  if(driver.findElement(By.xpath("//div[contains(text(),'The current password is incorrect')]")).isDisplayed()) 
+	  {
+	  System.out.println("true"); 
+	  }
+	  else System.out.println("not displayed");
+	  }
+	  catch(Exception s) 
+		  {
+	System.out.println("user is able to click on save settings button"+s);
+	Assert.fail();
+	} 
+		  }
 	 
 	
-	  @Given("user is on edit_profile") public void user_is_on_edit_profile1() {
+	  @Given("user is on edit_profile") 
+	  public void user_is_on_edit_profile1() {
 	  System.out.println("user is on edit profile page"); }
 	  
-	  @When("user enter {string} ,{string},{string}") public void user_enter(String
-	  oldpassword, String newpassword, String confirmpassword) { try { driver.findElement(
-	  By.id("profile_password0")).sendKeys("g"); Thread.sleep(2000);
-	  driver.findElement(By.id("password1")).sendKeys("hghe"); Thread.sleep(2000);
-	  driver.findElement(By.id("profile_password2")).sendKeys("hfhe");
-	  Thread.sleep(2000); } catch(Exception a) {
-	  System.out.println("user is not able to change password");
+	  @When("user enter {string} ,{string},{string}")
+	  public void user_enter(String oldpassword, String newpassword, String confirmpassword) 
+	  {
+		  try
+		  {
+			  driver.findElement( By.id("profile_password0")).sendKeys("g");
+			  Thread.sleep(2000);
+			  driver.findElement(By.id("password1")).sendKeys("hghe");
+			  Thread.sleep(2000);
+			  driver.findElement(By.id("profile_password2")).sendKeys("hfhe");
+			  Thread.sleep(2000); } catch(Exception a) {
+			System.out.println("user is not able to change password");
+				  Assert.fail();
+	  }
+		  }
+	  
+	  @Then("user gets a message after clicking on save setting") 
+	  public void user_gets_a_message_after_clicking_on_save_setting()
+	  {
+		  try
+		  {
+	  driver.findElement(By.id("profile_apply_change")).click();
+	  Thread.sleep(2000);
+	  if(driver.findElement(By.xpath("//div[text()='You have typed two different passwords']")).isDisplayed()) 
+	  { 
+		  System.out.println("true");
+		  }
+	  else System.out.println("not displayed");
+	  } 
+		  catch(Exception s) {
+	  System.out.println("user is able to click on save settings button"+s);
 	  Assert.fail();
-	  } }
-	  
-	  @Then("user gets a message after clicking on save setting") public void
-	  user_gets_a_message_after_clicking_on_save_setting() { try {
-	  driver.findElement(By.id("profile_apply_change")).click();
-	  Thread.sleep(2000); if(driver.findElement(By.
-	  xpath("//div[text()='You have typed two different passwords']")).isDisplayed(
-	  )) { System.out.println("true"); } else System.out.println("not displayed");
-	  } catch(Exception s) {
-	  System.out.println("user is able to click on save settings button"+s);Assert.fail(); } }
+	  }
+		  }
 	 
 	
-	  @Given("user is on edit.profile") public void user_is_on_edit_profile11() {
-	  System.out.println("user is on edit profile page"); }
+	  @Given("user is on edit.profile") 
+	  public void user_is_on_edit_profile11() {
+	  System.out.println("user is on edit profile page");
+	  }
 	  
-	  @When("user enters Skype url") public void user_enters_Skype_url() { try {
-	  Thread.sleep(2000); driver.findElement(By.id("extra_skype")).sendKeys(
-	  "dhjhcyfe2fiycivc@skype.com"); } catch(Exception ex) {
-	  System.out.println("user is not able to enter skype url"+ex); Assert.fail();} }
+	  @When("user enters Skype url") 
+	  public void user_enters_Skype_url() 
+	  {
+		  try
+		  {
+	  Thread.sleep(2000); driver.findElement(By.id("extra_skype")).sendKeys("dhjhcyfe2fiycivc@skype.com"); 
+	  }
+		  catch(Exception ex) 
+		  {
+	  System.out.println("user is not able to enter skype url"+ex); 
+	  Assert.fail();
+	  }
+		  }
 	  
-	  @When("user enter LinkedIn url") public void user_enter_LinkedIn_url() { try
-	  { Thread.sleep(2000);
-	  driver.findElement(By.id("extra_linkedin_url")).sendKeys(
-	  "dhjhcyfe2fiycivc@skype.com"); } catch(Exception ex) {
-	  System.out.println("user is not able to enter skype url"+ex);Assert.fail(); }
+	  @When("user enter LinkedIn url") 
+	  public void user_enter_LinkedIn_url()
+	  {
+		  try
+	  { 
+			  Thread.sleep(2000);
+	  driver.findElement(By.id("extra_linkedin_url")).sendKeys("dhjhcyfe2fiycivc@skype.com"); 
+	  }
+		  catch(Exception ex) {
+	  System.out.println("user is not able to enter skype url"+ex);
+	  Assert.fail(); 
+	  }
 	  
 	  }
 	  
-	  @Then("user is able to click on save settings again") public void
-	  user_is_able_to_click_on_save_settings_again() { try { Thread.sleep(2000);
-	  driver.findElement(By.id("profile_apply_change")).click(); } catch(Exception
-	  u) { System.out.println("user is able to save setting"+u); Assert.fail();}
+	  @Then("user is able to click on save settings again") 
+	  public void user_is_able_to_click_on_save_settings_again() 
+	  { 
+		  try
+		  { 
+			  Thread.sleep(2000);
+	  driver.findElement(By.id("profile_apply_change")).click(); 
+	  } 
+		  catch(Exception u) 
+		  {
+			  System.out.println("user is able to save setting"+u);
+			  Assert.fail();}
 	  
 	  }
 	
-//	@When("user clicks on profile image")
-//	public void user_clicks_on_profile_image() {
-//	    try
-//	    {   
-//	    	Thread.sleep(3000);
-//	    	driver.findElement(By.xpath("//img[@class='img-responsive img-circle']")).click();
-//	    	Thread.sleep(3000);
-//	    	driver.findElement(By.xpath("//div[@class='modal fade in']")).click();
-//	    }
-//	    catch(Exception g)
-//	    {
-//	    	System.out.println("user is not able to click on profile photo"+g);
-//	 Assert.fail();
-//	    }
-//	}
-//
-//	@When("user is able to click on remove image checkbox")
-//	public void user_is_able_to_click_on_remove_image_checkbox() {
-//		 try
-//		    {   
-//		    	Thread.sleep(3000);
-//		    	driver.findElement(By.name("remove_picture")).click();
-//		    	
-//		    }
-//		    catch(Exception g)
-//		    {
-//		    	System.out.println("user is not able to click on checkbox"+g);
-//	  Assert.fail();
-//		    }
-//	}
-//
-//	@Then("user clicks on save changes")
-//	public void user_clicks_on_save_changes() {
-//		{ 
-//			try 
-//			{ 
-//				Thread.sleep(2000);
-//	            driver.findElement(By.id("profile_apply_change")).click(); 
-//			}
-//		catch(Exception u) 
-//		  { 
-//			System.out.println("user is able to save setting"+u); Assert.fail();
-//			}
-//	}
-//	}
-	  @Given("user is on Edit profile page")
-	  public void user_is_on_Edit_profile_page() {
-	      System.out.println("user is on edit profile page");
-	  }
+	@When("user clicks on profile image")
+	public void user_clicks_on_profile_image() {
+	    try
+	    {   
+	    	Thread.sleep(3000);
+	    	driver.findElement(By.xpath("//img[@class='img-responsive img-circle']")).click();
+	    	Thread.sleep(3000);
+	    	driver.findElement(By.xpath("//div[@class='modal fade in']")).click();
+	    }
+	    catch(Exception g)
+	    {
+	    	System.out.println("user is not able to click on profile photo"+g);
+	 Assert.fail();
+	    }
+	}
+
+	@When("user is able to click on remove image checkbox")
+	public void user_is_able_to_click_on_remove_image_checkbox() {
+		 try
+		    {   
+		    	Thread.sleep(3000);
+		    	driver.findElement(By.name("remove_picture")).click();
+		    	
+		    }
+		    catch(Exception g)
+		    {
+		    	System.out.println("user is not able to click on checkbox"+g);
+	  Assert.fail();
+		    }
+	}
+
+	@Then("user clicks on save changes")
+	public void user_clicks_on_save_changes() {
+		{ 
+			try 
+			{ 
+				Thread.sleep(2000);
+	            driver.findElement(By.id("profile_apply_change")).click(); 
+			}
+		catch(Exception u) 
+		  { 
+			System.out.println("user is able to save setting"+u); Assert.fail();
+			}
+	}
+	}
+	 
+	  
 
 	@When("user enters skype url")
 	public void user_enters_skype_url() {
